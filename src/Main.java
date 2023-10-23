@@ -8,9 +8,9 @@ public class Main {
         // eligibleAge();
         // saleRevenue();
         // arrayMaxElement();
-        // vacationAdvice();
+         vacationAdvice();
         // divisibleBy5Elements();
-         reverseList();
+        // reverseList();
 
     }
 
@@ -62,11 +62,10 @@ public class Main {
     }
 
     public static void weekDays() {
-        int day;
 
-        Scanner myObj = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the day of the week with a number between 1 and 7:");
-        day = myObj.nextInt();
+        int day = scanner.nextInt();
 
         switch (day) {
             case 1:
@@ -85,10 +84,10 @@ public class Main {
                 System.out.println("The " + day + "th day of the week is Friday.");
                 break;
             case 6:
-                System.out.println("The " + day + "st day of the week is Saturday.");
+                System.out.println("The " + day + "th day of the week is Saturday.");
                 break;
             case 7:
-                System.out.println("The " + day + "st day of the week is Sunday.");
+                System.out.println("The " + day + "th day of the week is Sunday.");
                 break;
             default:
                 System.out.println("You have not entered a proper number.");
@@ -114,7 +113,8 @@ public class Main {
     public static void saleRevenue() {
         long unitPrice;
         long quantitySold;
-        double discount;
+        double discountPercent;
+        double discountForSale;
         double revenue;
 
         Scanner myObj = new Scanner(System.in);
@@ -123,16 +123,24 @@ public class Main {
         System.out.println("Enter the quantity of sold units:");
         quantitySold = myObj.nextLong();
 
-            if (quantitySold < 100) {
-                discount = 0;
+        Scanner myObjString = new Scanner(System.in);
+        System.out.println("Enter the currency of unit price: ");
+        String currency = myObjString.nextLine();
+
+        if (quantitySold < 100) {
+                discountPercent = 0;
             } else {
-                if (quantitySold < 120) {
-                    discount = 0.2;
-                } else discount = 0.15;
+                if (quantitySold > 120) {
+                    discountPercent = 20;
+                } else discountPercent = 15;
 
             }
-        revenue = (unitPrice * quantitySold) - ((unitPrice * quantitySold) * discount);
-            System.out.println("The revenue from this sale is " + revenue);
+
+        discountForSale = ((unitPrice * quantitySold) * discountPercent)/100;
+        revenue = (unitPrice * quantitySold) - discountForSale;
+            System.out.println("The revenue from sale: " + revenue + " " +currency);
+            System.out.println("The discount: " + discountForSale + " " + currency
+                                + " " + "(" + discountPercent + " " + currency  + ")");
     }
 
     public static void arrayMaxElement() {
@@ -151,26 +159,28 @@ public class Main {
     }
 
     public static void vacationAdvice() {
-        int vacationTypeChoice;
+        String vacationTypeChoice;
         int budget;
 
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("What holiday type do you prefer?\n" +
-                            "Enter 1 for Beach;\n" +
-                            "Enter 2 for Mountain;\n");
-        vacationTypeChoice = myObj.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What holiday type do you prefer - beach or mountain?");
+        vacationTypeChoice = scanner.nextLine();
 
+        Scanner myObj = new Scanner(System.in);
         System.out.println("Enter your holiday budget:");
         budget = myObj.nextInt();
 
         switch (vacationTypeChoice){
-            case 1:
+            case "beach":
+            case "Beach":
                 String advice1 = (budget <= 50) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
                 System.out.println(advice1);
-                ; break;
-            case 2: String advice2 = (budget <= 30) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
-                System.out.println(advice2);; break;
-            default: System.out.println("YOu have not selected a proper holiday type.");
+                break;
+            case "mountain":
+            case "Mountain":
+                String advice2 = (budget <= 30) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
+                System.out.println(advice2); break;
+            default: System.out.println("You have not selected a proper holiday type.");
         }
 
 
@@ -195,8 +205,8 @@ public class Main {
     public static void reverseList() {
         int [] list1 = {10, 20, 30, 40, 50};
         int [] list2 = new int [list1.length];
-        int j; // used for list2 element index
-        int i; // used for list1 element index
+        int j; // used for list1 element index
+        int i; // used for list2 element index
 
         j = (list1.length) - 1;
         for (i = 0; i < list1.length; i++) {
