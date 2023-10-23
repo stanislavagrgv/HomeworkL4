@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
 
         // triangleCalculation();
-         weekDays();
+        // weekDays();
         // eligibleAge();
         // saleRevenue();
         // arrayMaxElement();
-        // vacationAdvice();
+         vacationAdvice();
         // divisibleBy5Elements();
         // reverseList();
 
@@ -159,26 +159,28 @@ public class Main {
     }
 
     public static void vacationAdvice() {
-        int vacationTypeChoice;
+        String vacationTypeChoice;
         int budget;
 
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("What holiday type do you prefer?\n" +
-                            "Enter 1 for Beach;\n" +
-                            "Enter 2 for Mountain;\n");
-        vacationTypeChoice = myObj.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What holiday type do you prefer - beach or mountain?");
+        vacationTypeChoice = scanner.nextLine();
 
+        Scanner myObj = new Scanner(System.in);
         System.out.println("Enter your holiday budget:");
         budget = myObj.nextInt();
 
         switch (vacationTypeChoice){
-            case 1:
+            case "beach":
+            case "Beach":
                 String advice1 = (budget <= 50) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
                 System.out.println(advice1);
                 break;
-            case 2: String advice2 = (budget <= 30) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
+            case "mountain":
+            case "Mountain":
+                String advice2 = (budget <= 30) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
                 System.out.println(advice2); break;
-            default: System.out.println("YOu have not selected a proper holiday type.");
+            default: System.out.println("You have not selected a proper holiday type.");
         }
 
 
