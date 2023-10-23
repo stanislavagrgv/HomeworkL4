@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
         // triangleCalculation();
-        // weekDays();
+         weekDays();
         // eligibleAge();
-         saleRevenue();
+        // saleRevenue();
         // arrayMaxElement();
         // vacationAdvice();
         // divisibleBy5Elements();
@@ -62,11 +62,10 @@ public class Main {
     }
 
     public static void weekDays() {
-        int day;
 
-        Scanner myObj = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the day of the week with a number between 1 and 7:");
-        day = myObj.nextInt();
+        int day = scanner.nextInt();
 
         switch (day) {
             case 1:
@@ -85,10 +84,10 @@ public class Main {
                 System.out.println("The " + day + "th day of the week is Friday.");
                 break;
             case 6:
-                System.out.println("The " + day + "st day of the week is Saturday.");
+                System.out.println("The " + day + "th day of the week is Saturday.");
                 break;
             case 7:
-                System.out.println("The " + day + "st day of the week is Sunday.");
+                System.out.println("The " + day + "th day of the week is Sunday.");
                 break;
             default:
                 System.out.println("You have not entered a proper number.");
@@ -176,9 +175,9 @@ public class Main {
             case 1:
                 String advice1 = (budget <= 50) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
                 System.out.println(advice1);
-                ; break;
+                break;
             case 2: String advice2 = (budget <= 30) ? "We advise you to select a destination in Bulgaria." : "You can select a destination outside Bulgaria.";
-                System.out.println(advice2);; break;
+                System.out.println(advice2); break;
             default: System.out.println("YOu have not selected a proper holiday type.");
         }
 
