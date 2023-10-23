@@ -6,11 +6,11 @@ public class Main {
         // triangleCalculation();
         // weekDays();
         // eligibleAge();
-        // saleRevenue();
+         saleRevenue();
         // arrayMaxElement();
         // vacationAdvice();
         // divisibleBy5Elements();
-         reverseList();
+        // reverseList();
 
     }
 
@@ -114,7 +114,8 @@ public class Main {
     public static void saleRevenue() {
         long unitPrice;
         long quantitySold;
-        double discount;
+        double discountPercent;
+        double discountForSale;
         double revenue;
 
         Scanner myObj = new Scanner(System.in);
@@ -123,16 +124,24 @@ public class Main {
         System.out.println("Enter the quantity of sold units:");
         quantitySold = myObj.nextLong();
 
-            if (quantitySold < 100) {
-                discount = 0;
+        Scanner myObjString = new Scanner(System.in);
+        System.out.println("Enter the currency of unit price: ");
+        String currency = myObjString.nextLine();
+
+        if (quantitySold < 100) {
+                discountPercent = 0;
             } else {
-                if (quantitySold < 120) {
-                    discount = 0.2;
-                } else discount = 0.15;
+                if (quantitySold > 120) {
+                    discountPercent = 20;
+                } else discountPercent = 15;
 
             }
-        revenue = (unitPrice * quantitySold) - ((unitPrice * quantitySold) * discount);
-            System.out.println("The revenue from this sale is " + revenue);
+
+        discountForSale = ((unitPrice * quantitySold) * discountPercent)/100;
+        revenue = (unitPrice * quantitySold) - discountForSale;
+            System.out.println("The revenue from sale: " + revenue + " " +currency);
+            System.out.println("The discount: " + discountForSale + " " + currency
+                                + " " + "(" + discountPercent + " " + currency  + ")");
     }
 
     public static void arrayMaxElement() {
