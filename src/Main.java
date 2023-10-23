@@ -205,8 +205,8 @@ public class Main {
     public static void reverseList() {
         int [] list1 = {10, 20, 30, 40, 50};
         int [] list2 = new int [list1.length];
-        int j; // used for list2 element index
-        int i; // used for list1 element index
+        int j; // used for list1 element index
+        int i; // used for list2 element index
 
         j = (list1.length) - 1;
         for (i = 0; i < list1.length; i++) {
